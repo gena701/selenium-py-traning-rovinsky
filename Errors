@@ -1,0 +1,119 @@
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky>pip install pytest
+c:\barancev\selenium-py-traning-rovinsky\env\lib\site-packages\pip\pep425tags.py:89: RuntimeWarning: Config variable 'Py_DEBUG' is unset, Python ABI tag may be incorrect
+  warn=(impl == 'cp')):
+c:\barancev\selenium-py-traning-rovinsky\env\lib\site-packages\pip\pep425tags.py:93: RuntimeWarning: Config variable 'WITH_PYMALLOC' is unset, Python ABI tag may be incorrect
+  warn=(impl == 'cp')):
+Collecting pytest
+  Using cached pytest-2.8.5-py2.py3-none-any.whl
+Collecting colorama (from pytest)
+  Using cached colorama-0.3.6-py2.py3-none-any.whl
+Collecting py>=1.4.29 (from pytest)
+  Using cached py-1.4.31-py2.py3-none-any.whl
+Installing collected packages: colorama, py, pytest
+Successfully installed colorama-0.3.6 py-1.4.31 pytest-2.8.5
+
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky>py.test
+============================= test session starts =============================
+platform win32 -- Python 3.5.0, pytest-2.8.5, py-1.4.31, pluggy-0.3.1
+rootdir: c:\BARANCEV\selenium-py-traning-rovinsky, inifile:
+collected 29 items
+
+ENV\Lib\site-packages\wheel\test\test_basic.py ......F..
+ENV\Lib\site-packages\wheel\test\test_install.py ..
+ENV\Lib\site-packages\wheel\test\test_keys.py ..
+ENV\Lib\site-packages\wheel\test\test_paths.py .
+ENV\Lib\site-packages\wheel\test\test_ranking.py .
+ENV\Lib\site-packages\wheel\test\test_signatures.py ...
+ENV\Lib\site-packages\wheel\test\test_tagopt.py .......
+ENV\Lib\site-packages\wheel\test\test_tool.py F
+ENV\Lib\site-packages\wheel\test\test_wheelfile.py ..
+php4dvd\test_login.py .
+
+================================== FAILURES ===================================
+_________________________________ test_pydist _________________________________
+
+    def test_pydist():
+        """Make sure pydist.json exists and validates against our schema."""
+        # XXX this test may need manual cleanup of older wheels
+
+>       import jsonschema
+E       ImportError: No module named 'jsonschema'
+
+ENV\Lib\site-packages\wheel\test\test_basic.py:117: ImportError
+_________________________________ test_keygen _________________________________
+
+    def test_keygen():
+        def get_keyring():
+            WheelKeys, keyring = tool.get_keyring()
+
+            class WheelKeysTest(WheelKeys):
+                def save(self):
+                    pass
+
+            class keyringTest:
+                backend = keyring.backend
+                class backends:
+                    file = keyring.backends.file
+                @classmethod
+                def get_keyring(cls):
+                    class keyringTest2:
+                        pw = None
+                        def set_password(self, a, b, c):
+                            self.pw = c
+                        def get_password(self, a, b):
+                            return self.pw
+
+                    return keyringTest2()
+
+            return WheelKeysTest, keyringTest
+
+>       tool.keygen(get_keyring=get_keyring)
+
+ENV\Lib\site-packages\wheel\test\test_tool.py:28:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ENV\Lib\site-packages\wheel\tool\__init__.py:38: in keygen
+    WheelKeys, keyring = get_keyring()
+ENV\Lib\site-packages\wheel\test\test_tool.py:5: in get_keyring
+    WheelKeys, keyring = tool.get_keyring()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def get_keyring():
+        try:
+            from ..signatures import keys
+            import keyring
+        except ImportError:
+>           raise WheelError("Install wheel[signatures] (requires keyring, pyxdg) for signatures.")
+E           wheel.tool.WheelError: Install wheel[signatures] (requires keyring, pyxdg) for signatures.
+
+ENV\Lib\site-packages\wheel\tool\__init__.py:33: WheelError
+==================== 2 failed, 27 passed in 22.30 seconds =====================
+
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky>cd php4dvd
+
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky\php4dvd>py.test
+============================= test session starts =============================
+platform win32 -- Python 3.5.0, pytest-2.8.5, py-1.4.31, pluggy-0.3.1
+rootdir: c:\BARANCEV\selenium-py-traning-rovinsky\php4dvd, inifile:
+collected 0 items / 1 errors
+
+=================================== ERRORS ====================================
+_______________________ ERROR collecting test_login.py ________________________
+test_login.py:9: in <module>
+    import jsonschema
+E   ImportError: No module named 'jsonschema'
+=========================== 1 error in 0.42 seconds ===========================
+
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky\php4dvd>cd ..
+
+(ENV) c:\BARANCEV\selenium-py-traning-rovinsky>py.test php4dvd
+============================= test session starts =============================
+platform win32 -- Python 3.5.0, pytest-2.8.5, py-1.4.31, pluggy-0.3.1
+rootdir: c:\BARANCEV\selenium-py-traning-rovinsky\php4dvd, inifile:
+collected 0 items / 1 errors
+
+=================================== ERRORS ====================================
+_______________________ ERROR collecting test_login.py ________________________
+php4dvd\test_login.py:9: in <module>
+    import jsonschema
+E   ImportError: No module named 'jsonschema'
+=========================== 1 error in 0.29 seconds ===========================
