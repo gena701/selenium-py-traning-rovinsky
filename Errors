@@ -1,0 +1,58 @@
+================================== FAILURES ===================================
+_________________________________ test_pydist _________________________________
+
+    def test_pydist():
+        """Make sure pydist.json exists and validates against our schema."""
+        # XXX this test may need manual cleanup of older wheels
+
+>       import jsonschema
+E       ImportError: No module named 'jsonschema'
+
+ENV\Lib\site-packages\wheel\test\test_basic.py:117: ImportError
+_________________________________ test_keygen _________________________________
+
+    def test_keygen():
+        def get_keyring():
+            WheelKeys, keyring = tool.get_keyring()
+
+            class WheelKeysTest(WheelKeys):
+                def save(self):
+                    pass
+
+            class keyringTest:
+                backend = keyring.backend
+                class backends:
+                    file = keyring.backends.file
+                @classmethod
+                def get_keyring(cls):
+                    class keyringTest2:
+                        pw = None
+                        def set_password(self, a, b, c):
+                            self.pw = c
+                        def get_password(self, a, b):
+                            return self.pw
+
+                    return keyringTest2()
+
+            return WheelKeysTest, keyringTest
+
+>       tool.keygen(get_keyring=get_keyring)
+
+ENV\Lib\site-packages\wheel\test\test_tool.py:28:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+ENV\Lib\site-packages\wheel\tool\__init__.py:38: in keygen
+    WheelKeys, keyring = get_keyring()
+ENV\Lib\site-packages\wheel\test\test_tool.py:5: in get_keyring
+    WheelKeys, keyring = tool.get_keyring()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def get_keyring():
+        try:
+            from ..signatures import keys
+            import keyring
+        except ImportError:
+>           raise WheelError("Install wheel[signatures] (requires keyring, pyxdg) for signatures.")
+E           wheel.tool.WheelError: Install wheel[signatures] (requires keyring, pyxdg) for signatures.
+
+ENV\Lib\site-packages\wheel\tool\__init__.py:33: WheelError
+==================== 2 failed, 27 passed in 22.30 seconds =====================
