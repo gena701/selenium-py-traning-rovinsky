@@ -1,0 +1,18 @@
+	
+Ошибка -
+
+java.io.IOException: Failed to dynamically deploy this plugin
+	at hudson.model.UpdateCenter$InstallationJob._run(UpdateCenter.java:1383)
+	at hudson.model.UpdateCenter$DownloadJob.run(UpdateCenter.java:1161)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)
+	at java.util.concurrent.FutureTask.run(Unknown Source)
+	at hudson.remoting.AtmostOneThreadExecutor$Worker.run(AtmostOneThreadExecutor.java:110)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: java.io.IOException: Failed to install git plugin
+	at hudson.PluginManager.dynamicLoad(PluginManager.java:487)
+	at hudson.model.UpdateCenter$InstallationJob._run(UpdateCenter.java:1379)
+	... 5 more
+Caused by: java.io.IOException: Dependency scm-api (1.0), git-client (1.19.0) doesn't exist
+	at hudson.PluginWrapper.resolvePluginDependencies(PluginWrapper.java:533)
+	at hudson.PluginManager.dynamicLoad(PluginManager.java:477)
+	... 6 more
