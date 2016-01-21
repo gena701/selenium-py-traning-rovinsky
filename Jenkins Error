@@ -1,5 +1,0 @@
-INFO: Jenkins is fully up and running
- эт 21, 2016 5:02:35 PM hudson.model.UpdateSite updateData
-SEVERE: ERROR: Signature verification failed in update site &#039;default&#039; <a href='#' class='showDetails'>(show details)</a><pre style='display:none'>java.security.cert.CertPathValidatorException: Algorithm constraints check failed: M<br>    at sun.security.provider.certpath.PKIXMasterCertPathValidator.validate(U<br>    at sun.security.provider.certpath.PKIXCertPathValidator.validate(Unknown<br>    at sun.security.provider.certpath.PKIXCertPathValidator.validate(Unknown<br>    at sun.security.provider.certpath.PKIXCertPathValidator.engineValidate(U<br>    at org.jvnet.hudson.crypto.CertificateUtil.validatePath(CertificateUtil.<br>    at jenkins.util.JSONSignatureValidator.verifySignature(JSONSignatureVali<br>    at jenkins.model.DownloadSettings$DailyCheck.execute(DownloadSettings.ja<br></pre> java.lang.Thread.run(Unknown Source)(AsyncPeriodicWork.java:53)
- эт 21, 2016 5:02:35 PM hudson.model.AsyncPeriodicWork$1 run
-INFO: Finished Download metadata. 4а671 ms
